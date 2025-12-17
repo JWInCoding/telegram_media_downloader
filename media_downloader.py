@@ -240,8 +240,14 @@ async def _get_media_meta(
         else:
             caption = app.get_caption_name(chat_id, message.media_group_id)
 
-        if not file_name and message.photo:
-            file_name = f"{message.photo.file_unique_id}"
+        if file_name and hasattr(media_obj, "file_unique_id"):
+            file_name = f"{file_name}_{media_obj.file_unique_id}"
+        elif hasattr(media_obj, "file_unique_id"):
+            file_name = media_obj.file_unique_id
+        else:
+            # 二级兜底：用消息 id + 日期生成唯一名字
+            date_str = message.date.strftime("%Y%m%d_%H%M%S") if message.date else "00000000_000000"
+            file_name = f"VID_{date_str}_{message.id}"
 
         gen_file_name = (
             app.get_file_name(message.id, file_name, caption) + file_name_suffix
