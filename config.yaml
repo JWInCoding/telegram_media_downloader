@@ -1,24 +1,28 @@
-api_hash: your_api_hash
-api_id: your_api_id
+api_hash: a3406de8d171bb422bb6ddf3bbd800e2
+api_id: 94575
 chat:
-- chat_id: telegram_chat_id
+- chat_id: -1003579986488
   last_read_message_id: 0
+
+# 只下载视频（包括文档格式的视频）
+media_types:
+- video
+- document
+
+# 视频格式
 file_formats:
-  audio:
-  - all
-  document:
-  - all
   video:
   - all
+  document:
+  - mp4
+  - mkv
+  - avi
+  - mov
+
+# 文件名包含消息ID，避免重复
 file_path_prefix:
 - chat_title
 - media_datetime
-media_types:
-- audio
-- photo
-- video
-- document
-- voice
-- video_note
-# in linux please use /
-# save_path: E:\github\telegram_media_downloader
+
+save_path: /app/downloads
+language: EN
