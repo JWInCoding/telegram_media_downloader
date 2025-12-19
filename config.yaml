@@ -2,7 +2,7 @@ api_hash: a3406de8d171bb422bb6ddf3bbd800e2
 api_id: 94575
 chat:
 - chat_id: -1003579986488
-  last_read_message_id: 0
+  last_read_message_id: 805
 
 # 只下载视频（包括文档格式的视频）
 media_types:
